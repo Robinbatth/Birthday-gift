@@ -28,7 +28,7 @@ body{
     align-items:center;
     justify-content: space-evenly;
     border:2px solid #4b1f4b ;
-    border-radius: 4px ;
+    border-radius: 10px ;
 }
 
 .Birthday_wish{
@@ -102,7 +102,7 @@ body{
     height: 600px;
     width: 800px;
     border: 3.5px solid #a38d8d;
-    border-radius: 8px;
+    border-radius: 50px;
     display: flex;
     flex-direction: column; /* Ensures text stacks properly */
     justify-content: flex-start;
