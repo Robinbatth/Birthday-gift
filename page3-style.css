@@ -1,0 +1,90 @@
+*{
+    margin:0px;
+    font-family:Quicksand ;
+    border: border-box;
+}
+
+body{
+    background-color: #e0ebeb;
+    background: rgba(240, 255, 255, 0.1) url('download\ \(1\).jpeg'); /* Replace with your image path */
+    background-size:cover; /* Makes the image fit */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repetition */
+    background-blend-mode: lighten;
+    backdrop-filter: blur(7px);
+}
+
+
+.greeting-container{
+   
+    position:top;
+    padding:0px;
+    height:900px;
+    margin-bottom: 0px;
+    width:800px;
+    display:flex;
+    justify-content:center;
+    margin-left:370px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeIn 1.5s ease-in-out forwards;
+    
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.greeting-box{
+    margin-top:3px;
+    background: rgba(242, 222, 222, 0) url('Hummingbirds\ Flora\ wallpaper\ Cole\ &\ Son\ _\ Wallpaper\ Hummingbirds\ Flora.jpeg'); /* Replace with your image path */
+    background-size: cover; /* Makes the image fit */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repetition */
+    background-blend-mode: lighten;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(123, 62, 62, 0.3);
+    background-color: #ffffe6;
+    font-size: 20px;
+    color: #3b2e2a;
+    height: 630px;
+    width: 800px;
+    text-align: justify;
+    border: 3.5px solid #7b3e3e;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column; /* Ensures text stacks properly */
+    justify-content: flex-start;
+    align-items: center;
+    text-align: justify; /* Centers text */
+    padding: 20px; /* Adds space inside */
+    animation: glow 1.75s infinite alternate;
+}
+
+@keyframes glow{
+    0% { box-shadow: 0 0 5px #c97c7c; }
+    50% { box-shadow: 0 0 25px #c97c7c; }
+    100% { box-shadow: 0 0 5px #c97c7c; }
+}
+
+p{
+    animation: fadeIn 2.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+

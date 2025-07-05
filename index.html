@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Countdown</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #2c3e50, #6a11cb, #2575fc);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    #countdown {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.8);
+      letter-spacing: 2px;
+    }
+
+    #unlockButton {
+      padding: 15px 35px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d79;
+      color: white;
+      cursor: not-allowed;
+      opacity: 0.6;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px rgba(255,77,121,0.3);
+    }
+
+    #unlockButton.enabled {
+      cursor: pointer;
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(255,77,121,0.7);
+    }
+
+    #unlockButton.enabled:hover {
+      background: #ff3366;
+      box-shadow: 0 0 25px rgba(255,77,121,1);
+    }
+
+    #message {
+      font-size: 1.2em;
+      margin-top: 20px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Waiting for Your Special Day...</h1>
+  <div id="countdown">Loading...</div>
+  <button id="unlockButton" disabled>Go Ahead 🎁</button>
+  <div id="message">You can enter only after the countdown ends.</div>
+
+  <script>
+    const birthday = new Date("July 7, 2025 00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+    const button = document.getElementById("unlockButton");
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = birthday - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      } else {
+        clearInterval(countdown);
+        countdownEl.innerHTML = "🎉 It's your birthday! 🎉";
+        button.disabled = false;
+        button.classList.add("enabled");
+        button.onclick = () => {
+          window.location.href = "welcome.html"; // <-- replace with your unlocked page
+        };
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
